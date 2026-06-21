@@ -1,0 +1,8 @@
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.zip
+t5-news-summarizer/
+.streamlit/
