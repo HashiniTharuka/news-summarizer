@@ -10,6 +10,8 @@ from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 import json
 from datetime import datetime
+import os
+import sys
 
 # Import modules
 from model_loader import model_loader, ModelLoader
@@ -45,6 +47,12 @@ st.markdown("""
         padding: 1rem;
         border-radius: 0.5rem;
         border-left: 4px solid #2563EB;
+    }
+    .metric-card b {
+        color: black !important;
+    }
+    .metric-card span {
+        color: black !important;
     }
     .success-box {
         background-color: #D1FAE5;
@@ -390,11 +398,11 @@ elif page == "📚 History":
                 
                 if st.button(f"Delete #{len(st.session_state.history)-i}", key=f"del_{i}"):
                     st.session_state.history.pop(len(st.session_state.history)-i-1)
-                    st.experimental_rerun()
+                    st.rerun()
         
         if st.button("🗑️ Clear All History"):
             st.session_state.history = []
-            st.experimental_rerun()
+            st.rerun()
     else:
         st.info("ℹ️ No history yet")
 
